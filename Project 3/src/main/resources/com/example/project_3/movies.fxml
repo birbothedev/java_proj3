@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="titleText" layoutX="235.0" layoutY="49.0" prefHeight="47.0" prefWidth="330.0" text="FAVORITE MOVIE LIST" textAlignment="CENTER">
+         <font>
+            <Font name="Bookman Old Style Bold" size="27.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="78.0" layoutY="213.0" prefHeight="259.0" prefWidth="296.0">
+         <children>
+            <TextField fx:id="movieNameField" layoutX="21.0" layoutY="86.0" prefHeight="25.0" prefWidth="257.0" />
+            <Label layoutX="68.0" layoutY="32.0" text="ADD MOVIE TO LIST">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="69.0" prefHeight="17.0" prefWidth="91.0" text="MOVIE NAME">
+               <font>
+                  <Font name="Bookman Old Style" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="131.0" prefHeight="17.0" prefWidth="91.0" text="GENRE">
+               <font>
+                  <Font name="Bookman Old Style" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="addMovieButton" layoutX="121.0" layoutY="208.0" mnemonicParsing="false" text="SUBMIT" />
+            <ChoiceBox fx:id="genreBox" layoutX="21.0" layoutY="155.0" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="460.0" layoutY="159.0" prefHeight="384.0" prefWidth="296.0">
+         <children>
+            <Label layoutX="116.0" layoutY="21.0" text="MOVIES">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="15.0" />
+               </font>
+            </Label>
+            <ListView fx:id="moviesListView" layoutX="20.0" layoutY="46.0" prefHeight="300.0" prefWidth="257.0" />
+            <Button fx:id="saveMoviesListButton" layoutX="100.0" layoutY="358.0" mnemonicParsing="false" text="Save Movie List" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="loadMoviesListButton" layoutX="164.0" layoutY="159.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="124.0" text="Load Movie List" />
+      <AnchorPane layoutX="476.0" layoutY="110.0" prefHeight="72.0" prefWidth="264.0">
+         <children>
+            <CheckBox fx:id="fantasyCheckbox" layoutX="133.0" layoutY="41.0" mnemonicParsing="false" text="Fantasy/Sci-Fi" />
+            <CheckBox fx:id="comedyCheckbox" layoutX="51.0" layoutY="41.0" mnemonicParsing="false" text="Comedy" />
+            <CheckBox fx:id="actionCheckbox" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Action" />
+            <CheckBox fx:id="thrillerCheckbox" layoutX="96.0" layoutY="14.0" mnemonicParsing="false" text="Thriller" />
+            <CheckBox fx:id="romanceCheckbox" layoutX="177.0" layoutY="14.0" mnemonicParsing="false" text="Romance" />
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>
