@@ -12,7 +12,6 @@ public class FavoriteMovies extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(FavoriteMovies.class.getResource("movies.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
     }

@@ -47,11 +47,11 @@
       <Button fx:id="loadMoviesListButton" layoutX="164.0" layoutY="159.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="124.0" text="Load Movie List" />
       <AnchorPane layoutX="476.0" layoutY="110.0" prefHeight="72.0" prefWidth="264.0">
          <children>
-            <CheckBox fx:id="fantasyCheckbox" layoutX="133.0" layoutY="41.0" mnemonicParsing="false" text="Fantasy/Sci-Fi" />
-            <CheckBox fx:id="comedyCheckbox" layoutX="51.0" layoutY="41.0" mnemonicParsing="false" text="Comedy" />
-            <CheckBox fx:id="actionCheckbox" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Action" />
-            <CheckBox fx:id="thrillerCheckbox" layoutX="96.0" layoutY="14.0" mnemonicParsing="false" text="Thriller" />
-            <CheckBox fx:id="romanceCheckbox" layoutX="177.0" layoutY="14.0" mnemonicParsing="false" text="Romance" />
+            <CheckBox fx:id="fantasyCheckbox" layoutX="133.0" layoutY="41.0" mnemonicParsing="false" selected="true" text="Fantasy/Sci-Fi" />
+            <CheckBox fx:id="comedyCheckbox" layoutX="51.0" layoutY="41.0" mnemonicParsing="false" selected="true" text="Comedy" />
+            <CheckBox fx:id="actionCheckbox" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Action" />
+            <CheckBox fx:id="thrillerCheckbox" layoutX="96.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Thriller" />
+            <CheckBox fx:id="romanceCheckbox" layoutX="177.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Romance" />
          </children>
       </AnchorPane>
    </children>
