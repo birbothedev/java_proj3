@@ -1,0 +1,3 @@
+romance movie, romance
+thriller movie, thriller
+comedy movie, comedy
