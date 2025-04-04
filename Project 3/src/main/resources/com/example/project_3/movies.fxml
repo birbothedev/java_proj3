@@ -29,23 +29,21 @@
                   <Font name="Bookman Old Style" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="addMovieButton" layoutX="201.0" layoutY="155.0" mnemonicParsing="false" onAction="#onAddMovieButtonClick" text="SUBMIT" />
+            <Button fx:id="addMovieButton" layoutX="201.0" layoutY="155.0" mnemonicParsing="false" onAction="#onAddMovieButtonClick" text="Add" />
             <ChoiceBox fx:id="genreBox" layoutX="21.0" layoutY="155.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="460.0" layoutY="202.0" prefHeight="384.0" prefWidth="296.0">
+      <AnchorPane layoutX="460.0" layoutY="178.0" prefHeight="327.0" prefWidth="296.0">
          <children>
-            <Label layoutX="116.0" layoutY="21.0" text="MOVIES">
+            <Label layoutX="101.0" layoutY="26.0" text="MOVIE LIST">
                <font>
                   <Font name="Bookman Old Style Bold" size="15.0" />
                </font>
             </Label>
-            <ListView fx:id="moviesListView" layoutY="39.0" prefHeight="271.0" prefWidth="296.0" />
-            <Button fx:id="deleteMovie" layoutX="106.0" layoutY="325.0" mnemonicParsing="false" onAction="#onDeleteMovieButtonClick" text="Delete Movie" />
+            <ListView fx:id="moviesListView" layoutY="59.0" prefHeight="276.0" prefWidth="296.0" />
          </children>
       </AnchorPane>
-      <Button fx:id="loadMoviesListButton" layoutX="546.0" layoutY="127.0" mnemonicParsing="false" onAction="#onLoadMoviesListButtonClick" prefHeight="32.0" prefWidth="124.0" text="Load Movie List" />
-      <AnchorPane layoutX="476.0" layoutY="159.0" prefHeight="72.0" prefWidth="264.0">
+      <AnchorPane layoutX="476.0" layoutY="129.0" prefHeight="72.0" prefWidth="264.0">
          <children>
             <CheckBox fx:id="fantasyCheckbox" layoutX="133.0" layoutY="41.0" mnemonicParsing="false" selected="true" text="Fantasy/Sci-Fi" />
             <CheckBox fx:id="comedyCheckbox" layoutX="51.0" layoutY="41.0" mnemonicParsing="false" selected="true" text="Comedy" />
@@ -54,7 +52,9 @@
             <CheckBox fx:id="romanceCheckbox" layoutX="177.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Romance" />
          </children>
       </AnchorPane>
-      <Button fx:id="saveMoviesListButton" layoutX="164.0" layoutY="531.0" mnemonicParsing="false" onAction="#onSaveMoviesListButtonClick" text="Save Movie List" />
+      <Button fx:id="saveMoviesListButton" layoutX="216.0" layoutY="531.0" mnemonicParsing="false" onAction="#onSaveMoviesListButtonClick" text="Save Movie List" />
       <ListView fx:id="tempMovieListView" layoutX="71.0" layoutY="314.0" prefHeight="197.0" prefWidth="290.0" />
+      <Button fx:id="deleteMovie" layoutX="125.0" layoutY="531.0" mnemonicParsing="false" onAction="#onDeleteMovieButtonClick" text="Remove" />
+      <Button fx:id="loadMoviesListButton" layoutX="559.0" layoutY="531.0" mnemonicParsing="false" onAction="#onLoadMoviesListButtonClick" text="Load Movie List" />
    </children>
 </Pane>
