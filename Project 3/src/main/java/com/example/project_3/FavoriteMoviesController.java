@@ -106,8 +106,15 @@ public class FavoriteMoviesController implements Initializable{
     @FXML
     protected void onDeleteMovieButtonClick() {
         ObservableList<String> items = tempMovieListView.getSelectionModel().getSelectedItems();
+        // send alert if no item is selected
+        if (items.isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please select items to delete!");
+            alert.showAndWait();
+            return;
+        }
         for (String item : items) {
-            String[] parts = item.split(",");
+            String[] parts = item.split(", ");
             String name = parts[0];
 
             // syntax recommended by the ide
@@ -132,17 +139,16 @@ public class FavoriteMoviesController implements Initializable{
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
+                String[] parts = line.split(", ");
                 String name = parts[0];
                 String genre = parts[1];
                 Movie movie = new Movie(name, genre);
-                permMovieArrayList.add(movie);
+                // if the box is checked, get the text name of the box and see if it matches the genre of the movie
                 for (CheckBox box : checkBoxes){
                     if (isChecked(box)){
                         boxGenre = box.getText();
-                        System.out.println(boxGenre);
                         if (genre.equalsIgnoreCase(boxGenre)){
-                            System.out.println(genre);
+                            permMovieArrayList.add(movie);
                         }
                     }
                 }
@@ -154,6 +160,7 @@ public class FavoriteMoviesController implements Initializable{
     }
 
     protected void updateMovieViewList(ListView<String> listView, ArrayList<Movie> arrayList){
+        // clear any old list views before updating
         listView.getItems().clear();
         for (Movie movie : arrayList){
             if (!listView.getItems().contains(movie + "\n")){

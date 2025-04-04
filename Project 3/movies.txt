@@ -1,1 +1,4 @@
 funny movie, comedy
+scary movie, thriller
+love movie, romance
+funny movie 2, comedy
