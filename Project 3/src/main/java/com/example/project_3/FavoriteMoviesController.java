@@ -24,22 +24,22 @@ public class FavoriteMoviesController implements Initializable{
     private ChoiceBox<String> genreBox;
 
     @FXML
-    private CheckBox actionCheckbox;
+    private CheckBox action;
 
     @FXML
-    private CheckBox thrillerCheckbox;
+    private CheckBox thriller;
 
     @FXML
-    private CheckBox romanceCheckbox;
+    private CheckBox romance;
 
     @FXML
-    private CheckBox comedyCheckbox;
+    private CheckBox comedy;
 
     @FXML
-    private CheckBox fantasyCheckbox;
+    private CheckBox fantasy;
 
     @FXML
-    private ListView<String> moviesListView;
+    private ListView<String> permMoviesListView;
 
     @FXML
     private ListView<String> tempMovieListView;
@@ -55,21 +55,29 @@ public class FavoriteMoviesController implements Initializable{
 
     private final ArrayList<Movie> tempMovieArrayList = new ArrayList<>();
     private final ArrayList<Movie> permMovieArrayList = new ArrayList<>();
+    private final ArrayList<CheckBox> checkBoxes = new ArrayList<>();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        genreBox.getItems().addAll("romance", "thriller", "comedy", "action", "fantasy/sci-fi");
+        genreBox.getItems().addAll("romance", "thriller", "comedy", "action", "fantasy");
         tempMovieListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+        checkBoxes.add(action);
+        checkBoxes.add(thriller);
+        checkBoxes.add(romance);
+        checkBoxes.add(comedy);
+        checkBoxes.add(fantasy);
     }
 
     @FXML
     protected void onAddMovieButtonClick() {
-        String movieName = movieNameField.getText();
+        String movieName = movieNameField.getText().toLowerCase().trim();
         String movieGenre = genreBox.getSelectionModel().getSelectedItem();
         Movie movie = new Movie(movieName, movieGenre);
 
         tempMovieArrayList.add(movie);
-        updateTempMovieViewList(tempMovieArrayList);
+        updateMovieViewList(tempMovieListView, tempMovieArrayList);
 
         movieNameField.clear();
     }
@@ -106,16 +114,20 @@ public class FavoriteMoviesController implements Initializable{
             // remove movie from list if the names match
             tempMovieArrayList.removeIf(movie -> Objects.equals(name, movie.getName()));
         }
-        updateTempMovieViewList(tempMovieArrayList);
+        updateMovieViewList(tempMovieListView, tempMovieArrayList);
     }
 
     @FXML
     protected void onLoadMoviesListButtonClick(){
+        permMoviesListView.getItems().clear();
+        permMovieArrayList.clear();
         String filePath = "movies.txt";
+        String boxGenre;
         if (isFileEmpty(filePath)){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("The file is empty, please add movies before loading!");
             alert.showAndWait();
+            return;
         }
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -125,28 +137,27 @@ public class FavoriteMoviesController implements Initializable{
                 String genre = parts[1];
                 Movie movie = new Movie(name, genre);
                 permMovieArrayList.add(movie);
+                for (CheckBox box : checkBoxes){
+                    if (isChecked(box)){
+                        boxGenre = box.getText();
+                        System.out.println(boxGenre);
+                        if (genre.equalsIgnoreCase(boxGenre)){
+                            System.out.println(genre);
+                        }
+                    }
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        updatePermMovieViewList(permMovieArrayList);
+        updateMovieViewList(permMoviesListView, permMovieArrayList);
     }
 
-    protected void updateTempMovieViewList(ArrayList<Movie> arrayList){
-        tempMovieListView.getItems().clear();
+    protected void updateMovieViewList(ListView<String> listView, ArrayList<Movie> arrayList){
+        listView.getItems().clear();
         for (Movie movie : arrayList){
-            if (!tempMovieListView.getItems().contains(movie + "\n")){
-                tempMovieListView.getItems().add(movie + "\n");
-            }
-        }
-    }
-
-    protected void updatePermMovieViewList(ArrayList<Movie> arrayList){
-        moviesListView.getItems().clear();
-        for (Movie movie : arrayList){
-            if (!moviesListView.getItems().contains(movie + "\n")){
-                moviesListView.getItems().add(movie + "\n");
+            if (!listView.getItems().contains(movie + "\n")){
+                listView.getItems().add(movie.toString());
             }
         }
     }
@@ -155,5 +166,9 @@ public class FavoriteMoviesController implements Initializable{
     protected boolean isFileEmpty(String filepath){
         File file = new File(filepath);
         return file.length() == 0;
+    }
+
+    protected boolean isChecked(CheckBox checkBox) {
+        return checkBox.isSelected();
     }
 }

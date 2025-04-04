@@ -40,16 +40,16 @@
                   <Font name="Bookman Old Style Bold" size="15.0" />
                </font>
             </Label>
-            <ListView fx:id="moviesListView" layoutY="59.0" prefHeight="276.0" prefWidth="296.0" />
+            <ListView fx:id="permMoviesListView" layoutY="59.0" prefHeight="276.0" prefWidth="296.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="476.0" layoutY="129.0" prefHeight="72.0" prefWidth="264.0">
          <children>
-            <CheckBox fx:id="fantasyCheckbox" layoutX="133.0" layoutY="41.0" mnemonicParsing="false" selected="true" text="Fantasy/Sci-Fi" />
-            <CheckBox fx:id="comedyCheckbox" layoutX="51.0" layoutY="41.0" mnemonicParsing="false" selected="true" text="Comedy" />
-            <CheckBox fx:id="actionCheckbox" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Action" />
-            <CheckBox fx:id="thrillerCheckbox" layoutX="96.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Thriller" />
-            <CheckBox fx:id="romanceCheckbox" layoutX="177.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Romance" />
+            <CheckBox fx:id="fantasy" layoutX="133.0" layoutY="41.0" mnemonicParsing="false" selected="true" text="Fantasy/Sci-Fi" />
+            <CheckBox fx:id="comedy" layoutX="51.0" layoutY="41.0" mnemonicParsing="false" selected="true" text="Comedy" />
+            <CheckBox fx:id="action" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Action" />
+            <CheckBox fx:id="thriller" layoutX="96.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Thriller" />
+            <CheckBox fx:id="romance" layoutX="177.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Romance" />
          </children>
       </AnchorPane>
       <Button fx:id="saveMoviesListButton" layoutX="216.0" layoutY="531.0" mnemonicParsing="false" onAction="#onSaveMoviesListButtonClick" text="Save Movie List" />
